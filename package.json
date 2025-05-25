@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "npx ts-node src/server.ts",
+    "build": "cd client && npm install && npm run build && cd .. && tsc",
+    "start": "node dist/src/server.js",
     "test": "jest --passWithNoTests",
-    "dev": "tsc --watch"
+    "dev:watch": "tsc --watch",
+    "dev": "npx ts-node src/server.ts"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "express": "^5.1.0",
     "mongoose": "^8.15.0",
     "node-cron": "^4.0.7",
-    "openai": "^4.103.0"
+    "openai": "^4.103.0",
+    "path": "^0.12.7"
   }
 }

@@ -3,13 +3,14 @@ import mongoose from "mongoose";
 import cron from "node-cron";
 import cors from "cors";
 import { getPrediction } from "./getPrediction";
+import path from "path";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect("mongodb://localhost:27017/predictions", {
+mongoose.connect(`${process.env.MONGODB}/predictions`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 } as any)
@@ -51,7 +52,15 @@ app.post("/api/predictions", async (_req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 4000;
+// Serve static files from client/dist
+app.use(express.static(path.join(__dirname, "../../dist/client/")));
+
+// Fallback: serve index.html for any non-API route
+app.get("/", (_req, res) => {
+    res.sendFile(path.join(__dirname, "../../dist/client/index.html"));
+});
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

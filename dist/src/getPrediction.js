@@ -5,9 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPrediction = getPrediction;
 const openai_1 = __importDefault(require("openai"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const openai = new openai_1.default({
     baseURL: "https://api.deepseek.com",
-    apiKey: "sk-c1acfa7c11554f53a91c915c2d2d17ba",
+    apiKey: process.env.OPENAI_API_KEY,
 });
 async function getPrediction() {
     const completion = await openai.chat.completions.create({
