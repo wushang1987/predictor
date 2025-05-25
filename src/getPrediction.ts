@@ -1,8 +1,10 @@
 import OpenAI from "openai";
+import dotenv from "dotenv";
+dotenv.config();
 
 const openai = new OpenAI({
     baseURL: "https://api.deepseek.com",
-    apiKey: "sk-c1acfa7c11554f53a91c915c2d2d17ba",
+    apiKey: process.env.OPENAI_API_KEY!,
 });
 
 export async function getPrediction(): Promise<string> {
