@@ -1,4 +1,4 @@
-import { getPrediction } from "../src/index";
+import { getPrediction } from "../src/getPrediction";
 
 describe("getPrediction", () => {
     it(
