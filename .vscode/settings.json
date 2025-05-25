@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/579e0953-c4ee-4585-b9af-63bf2229e781/resourceGroups/appsvc_linux_eastasia/providers/Microsoft.Web/sites/predictor",
+    "appService.deploySubpath": "."
+}

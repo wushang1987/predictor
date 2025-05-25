@@ -5,8 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@mui/material": "^5.15.14",
-    "@rollup/rollup-win32-x64-msvc": "^4.41.1",
+    "@mui/material": "^7.1.0",
     "@vitejs/plugin-react": "^4.5.0",
     "axios": "^1.6.8",
     "react": "^18.2.0",
@@ -16,7 +15,7 @@
     "@types/react": "^18.2.62",
     "@types/react-dom": "^18.2.19",
     "typescript": "^5.4.5",
-    "vite": "^5.2.10"
+    "vite": "^6.3.5"
   },
   "scripts": {
     "dev": "vite",
