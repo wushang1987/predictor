@@ -40,6 +40,17 @@ app.get("/api/predictions", async (_req, res) => {
     res.json(predictions);
 });
 
+// API to create a new prediction
+app.post("/api/predictions", async (_req, res) => {
+    try {
+        const content = await getPrediction();
+        const prediction = await Prediction.create({ content });
+        res.status(201).json(prediction);
+    } catch (err) {
+        res.status(500).json({ error: "Prediction failed" });
+    }
+});
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
