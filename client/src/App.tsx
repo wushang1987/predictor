@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Typography, Card, CardContent, Box, Button, CircularProgress } from "@mui/material";
 import axios from "axios";
+import { marked } from "marked";
 
 interface Prediction {
   _id: string;
@@ -44,7 +45,9 @@ function App() {
         {predictions.map((p) => (
           <Card key={p._id}>
             <CardContent>
-              <Typography variant="body1">{p.content}</Typography>
+              <Typography variant="body1" component="div">
+                <span dangerouslySetInnerHTML={{ __html: marked.parse(p.content) }} />
+              </Typography>
               <Typography variant="caption" color="text.secondary">
                 {new Date(p.createdAt).toLocaleString()}
               </Typography>
