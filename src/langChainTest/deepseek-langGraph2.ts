@@ -1,21 +1,7 @@
-import { ChatDeepSeek } from "@langchain/deepseek";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { tool } from "@langchain/core/tools";
-
 import { z } from "zod";
-
-import dotenv from "dotenv";
-dotenv.config();
-
-const model = new ChatDeepSeek({
-    model: "deepseek-chat",
-    // model: "deepseek-reasoner",
-    temperature: 0,
-    apiKey: process.env.DEEPSEEK_API_KEY
-    // other params...
-});
-
+import deepseekModel from "./common/deepseekModel";
 
 
 const search = tool(async ({ query }) => {
@@ -34,11 +20,9 @@ const search = tool(async ({ query }) => {
 
 
 export const agent = createReactAgent({
-    llm: model,
+    llm: deepseekModel,
     tools: [search],
 });
-
-
 
 const result = await agent.invoke(
     {

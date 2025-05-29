@@ -1,17 +1,7 @@
-import { ChatDeepSeek } from "@langchain/deepseek";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
+import deepseekModel from "./common/deepseekModel";
 
-
-import dotenv from "dotenv";
-dotenv.config();
-
-const llm = new ChatDeepSeek({
-    model: "deepseek-chat",
-    // model: "deepseek-reasoner",
-    temperature: 0,
-    apiKey: process.env.DEEPSEEK_API_KEY
-    // other params...
-});
+const llm = deepseekModel;
 
 const prompt = ChatPromptTemplate.fromMessages([
     [
