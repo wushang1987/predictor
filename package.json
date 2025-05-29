@@ -12,6 +12,7 @@
     "dev": "dev:server & dev:client & dev:watch"
   },
   "author": "",
+  "type": "module",
   "license": "ISC",
   "description": "",
   "devDependencies": {
@@ -37,6 +38,7 @@
     "mongoose": "^8.15.0",
     "node-cron": "^4.0.7",
     "openai": "^4.103.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "tslab": "^1.0.22"
   }
 }
